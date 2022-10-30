@@ -12,9 +12,35 @@ local args = {
 game:GetService("Players").LocalPlayer.PlayerGui.NameEnter.TextButton.LocalScript.NameChanged:FireServer(unpack(args))
 end)
 
+FeaturesFeatures:NewTextBox("Change Gender", "Type The Gender You Want", function(txt)
+local Gender = txt
+local args = {
+    [1] = Gender
+}
+
+game:GetService("Players").LocalPlayer.PlayerGui.NameEnter.Male.LocalScript.NameChanged:FireServer(unpack(args))
+end)
+
 FeaturesFeatures:NewToggle("PushupTraining", "PushupTraining", function(state)
     getgenv().Train = state
     while getgenv().Train == true do
+        task.wait()
+        spawn(function()
+            local gui =  game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("PushupsGui")
+            if gui then 
+                 task.wait() else
+                    repeat
+                        task.wait()
+                        local args = {
+                            [1] = "J",
+                            [2] = function()end 
+                        }
+                        
+                        game:GetService("Players").LocalPlayer.Character.Character.input:FireServer(unpack(args))
+                until gui.Visible == true
+            end
+        end)
+        spawn(function()
         local Letter2 = game:GetService("Players").LocalPlayer.PlayerGui.PushupsGui.Pushups.Button
         task.wait()
             if Letter2.Text == "D" then
@@ -31,11 +57,11 @@ FeaturesFeatures:NewToggle("PushupTraining", "PushupTraining", function(state)
         game:GetService("VirtualInputManager"):SendKeyEvent(true, "T", false, game) elseif
         Letter2.Text == "Q" then
         game:GetService("VirtualInputManager"):SendKeyEvent(true, "Q", false, game)
-            
         end
-    end
-end)
-    
+    end)
+        end
+    end)
+
 FeaturesFeatures:NewToggle("SpeedTrain", "SpeedTrain", function(state)
 getgenv().Train = state
 while getgenv().Train == true do
@@ -97,7 +123,4 @@ FeaturesFeatures:NewButton("Name-Hide(Dk if this works)", "Name-Hide", function(
            v:Destroy()
         end
     end
-
 end)
-
-
