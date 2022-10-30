@@ -1,0 +1,52 @@
+
+local wl = game:GetService("Players").LocalPlayer 
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Lofi<3", "Ocean")
+local AFeatures = Window:NewTab("HxhShitter")
+local AutoFeatures = AFeatures:NewSection("HxhShitter")
+local Letter2 = game:GetService("Players").LocalPlayer.PlayerGui.PushupsGui.Pushups.Button
+
+AutoFeatures:NewToggle("PushupTraining", "PushupTraining", function(state)
+    getgenv().Train = state
+    while getgenv().Train == true do
+        task.wait()
+        if Letter2.Text == "D" then
+        game:GetService("VirtualInputManager"):SendKeyEvent(true, "D", false, game) elseif 
+        Letter2.Text == "S" then
+        game:GetService("VirtualInputManager"):SendKeyEvent(true, "S", false, game) elseif 
+        Letter2.Text == "A" then
+        game:GetService("VirtualInputManager"):SendKeyEvent(true, "A", false, game) elseif 
+        Letter2.Text == "W" then
+        game:GetService("VirtualInputManager"):SendKeyEvent(true, "W", false, game) elseif
+        Letter2.Text == "Z" then
+        game:GetService("VirtualInputManager"):SendKeyEvent(true, "Z", false, game) elseif
+        Letter2.Text == "T" then
+        game:GetService("VirtualInputManager"):SendKeyEvent(true, "T", false, game) elseif
+        Letter2.Text == "Q" then
+        game:GetService("VirtualInputManager"):SendKeyEvent(true, "Q", false, game)
+    end
+end
+end)
+
+AutoFeatures:NewToggle("SpeedTrain", "SpeedTrain", function(state)
+    getgenv().Train = state
+    while getgenv().Train == true do
+        task.wait()
+local args = {
+    [1] = "FastSprintStart",
+    [2] = false
+}
+
+game:GetService("Players").LocalPlayer.Character.Character.input:FireServer(unpack(args))
+end
+end)
+
+AutoFeatures:NewButton("SafeSpot", "SafeSpot", function()
+        local baseplate = Instance.new("Part")
+        baseplate.Parent = workspace
+        baseplate.Size = Vector3.new(100,5,100) 
+        baseplate.Anchored = true
+        baseplate.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,4930,0)
+        wait(1)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = baseplate.CFrame + Vector3.new(0,10,0)
+end)
