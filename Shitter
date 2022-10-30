@@ -117,7 +117,7 @@ FeaturesFeatures:NewButton("SafeSpot", "SafeSpot", function()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = baseplate.CFrame + Vector3.new(0,10,0)
 end)
 
-FeaturesFeatures:NewButton("Name-Hide(Dk if this works)", "Name-Hide", function()
+FeaturesFeatures:NewButton("Name-Hide(Idk if it works)", "Name-Hide", function()
     for i,v in next, game.Players.LocalPlayer.Character:GetChildren() do
         if v.Name == "FakeHead" then
            v:Destroy()
