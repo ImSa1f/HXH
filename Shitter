@@ -13,6 +13,11 @@ game:GetService("Players").LocalPlayer.PlayerGui.NameEnter.TextButton.LocalScrip
 end)
 
 FeaturesFeatures:NewToggle("PushupTraining", "PushupTraining", function(state)
+    --for i,v in next, game.Players.LocalPlayer.Character.Humanoid.Info:GetChildren() do
+        --if v.Name == "PushupCD" then
+           --v:Destroy()
+        --end
+    --end
     getgenv().Train = state
     while getgenv().Train == true do
         local Letter2 = game:GetService("Players").LocalPlayer.PlayerGui.PushupsGui.Pushups.Button
@@ -31,14 +36,7 @@ FeaturesFeatures:NewToggle("PushupTraining", "PushupTraining", function(state)
         Letter2.Text == "T" then
         game:GetService("VirtualInputManager"):SendKeyEvent(true, "T", false, game) elseif
         Letter2.Text == "Q" then
-        game:GetService("VirtualInputManager"):SendKeyEvent(true, "Q", false, game) elseif 
-        Letter2.Text == "" then
-            local args = {
-                [1] = "J",
-                [2] = function()end
-            }
-            
-            game:GetService("Players").LocalPlayer.Character.Character.input:FireServer(unpack(args))
+        game:GetService("VirtualInputManager"):SendKeyEvent(true, "Q", false, game)
             
         end
     end)
@@ -108,3 +106,5 @@ FeaturesFeatures:NewButton("Name-Hide(Dk if this works)", "Name-Hide", function(
     end
 
 end)
+
+
