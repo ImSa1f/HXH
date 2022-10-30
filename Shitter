@@ -1,14 +1,13 @@
 
-local wl = game:GetService("Players").LocalPlayer 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Lofi<3", "Ocean")
-local AFeatures = Window:NewTab("HxhShitter")
-local AutoFeatures = AFeatures:NewSection("HxhShitter")
-local Letter2 = game:GetService("Players").LocalPlayer.PlayerGui.PushupsGui.Pushups.Button
+local Window = Library.CreateLib("Lofi<3")
+local Features = Window:NewTab("Features")
+local FeaturesFeatures = Features:NewSection("All Features")
 
-AutoFeatures:NewToggle("PushupTraining", "PushupTraining", function(state)
+FeaturesFeatures:NewToggle("PushupTraining", "PushupTraining", function(state)
     getgenv().Train = state
     while getgenv().Train == true do
+        local Letter2 = game:GetService("Players").LocalPlayer.PlayerGui.PushupsGui.Pushups.Button
         task.wait()
         if Letter2.Text == "D" then
         game:GetService("VirtualInputManager"):SendKeyEvent(true, "D", false, game) elseif 
@@ -24,14 +23,14 @@ AutoFeatures:NewToggle("PushupTraining", "PushupTraining", function(state)
         game:GetService("VirtualInputManager"):SendKeyEvent(true, "T", false, game) elseif
         Letter2.Text == "Q" then
         game:GetService("VirtualInputManager"):SendKeyEvent(true, "Q", false, game)
+        end
     end
-end
-end)
-
-AutoFeatures:NewToggle("SpeedTrain", "SpeedTrain", function(state)
-    getgenv().Train = state
-    while getgenv().Train == true do
-        task.wait()
+    end)
+    
+FeaturesFeatures:NewToggle("SpeedTrain", "SpeedTrain", function(state)
+getgenv().Train = state
+while getgenv().Train == true do
+task.wait()
 local args = {
     [1] = "FastSprintStart",
     [2] = false
@@ -41,7 +40,7 @@ game:GetService("Players").LocalPlayer.Character.Character.input:FireServer(unpa
 end
 end)
 
-AutoFeatures:NewButton("SafeSpot", "SafeSpot", function()
+FeaturesFeatures:NewButton("SafeSpot", "SafeSpot", function()
         local baseplate = Instance.new("Part")
         baseplate.Parent = workspace
         baseplate.Size = Vector3.new(100,5,100) 
