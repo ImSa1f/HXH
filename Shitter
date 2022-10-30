@@ -13,16 +13,10 @@ game:GetService("Players").LocalPlayer.PlayerGui.NameEnter.TextButton.LocalScrip
 end)
 
 FeaturesFeatures:NewToggle("PushupTraining", "PushupTraining", function(state)
-    --for i,v in next, game.Players.LocalPlayer.Character.Humanoid.Info:GetChildren() do
-        --if v.Name == "PushupCD" then
-           --v:Destroy()
-        --end
-    --end
     getgenv().Train = state
     while getgenv().Train == true do
         local Letter2 = game:GetService("Players").LocalPlayer.PlayerGui.PushupsGui.Pushups.Button
         task.wait()
-        pcall(function()
             if Letter2.Text == "D" then
         game:GetService("VirtualInputManager"):SendKeyEvent(true, "D", false, game) elseif 
         Letter2.Text == "S" then
@@ -39,8 +33,7 @@ FeaturesFeatures:NewToggle("PushupTraining", "PushupTraining", function(state)
         game:GetService("VirtualInputManager"):SendKeyEvent(true, "Q", false, game)
             
         end
-    end)
-end
+    end
 end)
     
 FeaturesFeatures:NewToggle("SpeedTrain", "SpeedTrain", function(state)
